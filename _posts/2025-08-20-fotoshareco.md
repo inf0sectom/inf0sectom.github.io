@@ -1,6 +1,6 @@
 ---
 title: "Password Bypass Vulnerability in fotoShare Cloud Events"
-date: 2025-07-25 10:00:00 +0000
+date: 2025-08-20 10:00:00 +0000
 layout: post
 ---
 

@@ -16,7 +16,7 @@ timezone:
 
 title: inf0sectom # the main title
 
-tagline: CISSP, working on getting my OSCP+ # it will display as the subtitle
+tagline: "CISSP • Studying for OSCP+ <br> Offensive Security • Web App Security • Pentesting" # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
 
