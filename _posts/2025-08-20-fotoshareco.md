@@ -4,6 +4,17 @@ date: 2025-08-20 10:00:00 +0000
 layout: post
 ---
 
+# Vulnerability Summary
+- **CVE ID:** [CVE-2025-56694](https://www.cve.org/CVERecord?id=CVE-2025-56694)  
+- **Vendor:** LumaSoft  
+- **Product:** fotoShare Cloud (public-facing SaaS photo album platform)  
+- **Affected Component:** Password-protected photo albums  
+- **Affected Versions:** All deployments up to at least 2025-08-20 (no patch available)  
+- **Vulnerability Type:** Incorrect Access Control ([CWE-602: Client-Side Enforcement of Server-Side Security](https://cwe.mitre.org/data/definitions/602.html))  
+- **Impact:** Remote attackers can bypass client-side password protection to access private photo albums and images without authorization.  
+- **Attack Vector:** Network  
+- **Discoverer:** inf0sectom  
+
 # What is fotoShare Cloud?
 
 [fotoShare Cloud](https://fotoshare.co/) is a SaaS offering clients to instantly upload pictures taken from IRL photobooths to online photo albums that can be shared with event attendees via a URL. This URL is shared with attendees by email or SMS directly from the photobooth. 
@@ -103,6 +114,20 @@ if(true && authenticated !== true){
 }
 ```
 
+
+# Exploiting the Vulnerability
+
+A remote attacker could simply browse the web page of a password-protected event and run the JavaScript code below from the web browser's console to access private pictures:
+
+```javascript
+$('#passwordModal').modal('hide') ;               // Hide the password prompt
+lazySizes.init();                                 // Load the images via LazySizes
+```
+
+A remote attacker could also parse the web page's source code to list the URLs of the private images, since these are directly referenced in an insecure manner.
+
+As a result, private photo albums intended to be accessible only to event participants with a password can be viewed by anyone with the public album URL.
+
 # Responsible Disclosure Timeline
 - **2025-03-12**: Discovered the vulnerability.
 - **2025-03-13**: Opened a support ticket with LumaSoft (parent company) and disclosed both the vulnerability and the privacy issue related to their `robots.txt` file, which was then forwarded by the support staff to their development team.
@@ -112,7 +137,7 @@ if(true && authenticated !== true){
 - **2025-06-17**: After receiving no further updates, a 30-day reminder was sent to LumaSoft.
 - **2025-07-11**: A final reminder was sent to LumaSoft.
 - **2025-07-18**: A CVE ID request was sent to MITRE.
-- **2025-08-20**: A CVE ID was reserved by MITRE.
+- **2025-08-20**: [CVE-2025-56694](https://www.cve.org/CVERecord?id=CVE-2025-56694) was reserved by MITRE.
 
 
 # Notes
