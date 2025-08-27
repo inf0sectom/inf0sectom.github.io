@@ -23,9 +23,9 @@ layout: post
 
 # Finding the Vulnerability
 ## robots.txt
-Events and photo albums are all available from the `/e/` and `/a/` subfolders, respectively. I was curious to see if these were indexed by Google, which led me to finding many albums simple Google dorks, such as `inurl:/e/ site:fotoshare.co`. I then checked fotoShare's `robots.txt` file, to confirm it was missing these subfolders:
+Events and photo albums are all available from the `/e/` and `/a/` subfolders, respectively. I was curious to see if these were indexed by Google, which led me to finding many albums through simple Google dorks, such as `inurl:/e/ site:fotoshare.co`. I then checked fotoShare's `robots.txt` file, to confirm it was missing these subfolders:
 
-```
+```console
 C:\>curl https://fotoshare.co/robots.txt
 User-agent: *
 Disallow: /s/
@@ -131,13 +131,14 @@ As a result, private photo albums intended to be accessible only to event partic
 # Responsible Disclosure Timeline
 - **2025-03-12**: Discovered the vulnerability.
 - **2025-03-13**: Opened a support ticket with LumaSoft (parent company) and disclosed both the vulnerability and the privacy issue related to their `robots.txt` file, which was then forwarded by the support staff to their development team.
-- **2025-04-02**: Confirmed the privacy issue related to the `robots.txt` file has been resolved.
+- **2025-04-02**: Independently confirmed that the privacy issue related to the `robots.txt` file has been resolved.
 - **2025-04-28**: After requesting for an update, LumaSoft support confirmed the development team is working on other updates.
 - **2025-05-16**: After receiving no further updates, a 60-day deadline before public disclosure was provided to LumaSoft.
 - **2025-06-17**: After receiving no further updates, a 30-day reminder was sent to LumaSoft.
 - **2025-07-11**: A final reminder was sent to LumaSoft.
 - **2025-07-18**: A CVE ID request was sent to MITRE.
 - **2025-08-20**: [CVE-2025-56694](https://www.cve.org/CVERecord?id=CVE-2025-56694) was reserved by MITRE.
+- **2025-08-27**: [CVE-2025-56694](https://www.cve.org/CVERecord?id=CVE-2025-56694) was published by MITRE, with a CVSS 3.1 score of **5.8 (Medium)**.
 
 
 # Notes
