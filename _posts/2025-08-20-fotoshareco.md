@@ -4,12 +4,16 @@ date: 2025-08-20 10:00:00 +0000
 layout: post
 ---
 
+> **Update (2025-08-28):**  
+> LumaSoft has deployed a comprehensive fix for this security vulnerability to production.  
+> Server-side session-based authentication is now enforced, therefore the client-side bypass methods described below are no longer possible.
+
 # Vulnerability Summary
 - **CVE ID:** [CVE-2025-56694](https://www.cve.org/CVERecord?id=CVE-2025-56694)  
 - **Vendor:** LumaSoft  
 - **Product:** fotoShare Cloud (public-facing SaaS photo album platform)  
 - **Affected Component:** Password-protected photo albums  
-- **Affected Versions:** All deployments up to at least 2025-08-20 (no patch available)  
+- **Affected Versions:** All deployments up to 2025-08-28
 - **Vulnerability Type:** Incorrect Access Control ([CWE-602: Client-Side Enforcement of Server-Side Security](https://cwe.mitre.org/data/definitions/602.html))  
 - **Impact:** Remote attackers can bypass client-side password protection to access private photo albums and images without authorization.  
 - **Attack Vector:** Network  
@@ -139,7 +143,7 @@ As a result, private photo albums intended to be accessible only to event partic
 - **2025-07-18**: A CVE ID request was sent to MITRE.
 - **2025-08-20**: [CVE-2025-56694](https://www.cve.org/CVERecord?id=CVE-2025-56694) was reserved by MITRE.
 - **2025-08-27**: [CVE-2025-56694](https://www.cve.org/CVERecord?id=CVE-2025-56694) was published by MITRE, with a CVSS 3.1 score of **5.8 (Medium)**.
-
+- **2025-08-28**: LumaSoft confirmed a remediation has been deployed to production.
 
 # Notes
 *Text within angle brackets (`<>`) has been replaced throughout this write-up for privacy reasons.*
